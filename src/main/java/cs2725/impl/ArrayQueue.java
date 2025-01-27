@@ -9,10 +9,11 @@ package cs2725.impl;
 import cs2725.api.Queue;
 
 public class ArrayQueue<T> implements Queue<T> {
+    
+    protected ArrayList queue;
 
     public ArrayQueue() {
-        // TODO: To be implemented.
-        throw new UnsupportedOperationException("Not supported yet.");
+        queue = new ArrayList<T>();
     }
 
     @Override

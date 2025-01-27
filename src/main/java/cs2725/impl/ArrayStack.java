@@ -13,39 +13,49 @@ import cs2725.api.Stack;
  */
 public class ArrayStack<T> implements Stack<T> {
 
+    protected ArrayList stack;
+
     public ArrayStack() {
-        // TODO: To be implemented.
-        throw new UnsupportedOperationException("Not supported yet.");
+        stack = new ArrayList<T>();
     }
 
     @Override
     public void push(T item) {
-        // TODO: To be implemented.
-        throw new UnsupportedOperationException("Not supported yet.");
+        stack.insertItem(item);
+        stack.size++;
     }
 
     @Override
     public T pop() {
-        // TODO: To be implemented.
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (this.isEmpty()) {
+            throw new IllegalStateException("Stack is empty");
+        }
+        Object temp = stack.getItem(0);
+        stack.deleteItemAt(0);
+        return (T) temp;
     }
 
     @Override
     public T peek() {
-        // TODO: To be implemented.
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (this.isEmpty()) {
+            throw new IllegalStateException("Stack is empty");
+        }
+        return (T) stack.getItem(0);
     }
 
     @Override
     public boolean isEmpty() {
-        // TODO: To be implemented.
-        throw new UnsupportedOperationException("Not supported yet.");
+        for (int i = 0; i < stack.size(); i++) {
+            if (stack.getItem(i) != null) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
     public int size() {
-        // TODO: To be implemented.
-        throw new UnsupportedOperationException("Not supported yet.");
+        return stack.size;    
     }
 
 }
