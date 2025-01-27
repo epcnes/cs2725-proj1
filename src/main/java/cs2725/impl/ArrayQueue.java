@@ -18,32 +18,39 @@ public class ArrayQueue<T> implements Queue<T> {
 
     @Override
     public void enqueue(T item) {
-        // TODO: To be implemented.
-        throw new UnsupportedOperationException("Not supported yet.");
+        queue.store[-1] = item;
     }
 
     @Override
     public T dequeue() {
-        // TODO: To be implemented.
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (this.isEmpty()) {
+            throw new IllegalStateException("Stack is empty");
+        }
+        Object item = queue.store[0];
+        queue.deleteItemAt(0);
+        return (T) item;
     }
 
     @Override
     public T peek() {
-        // TODO: To be implemented.
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (this.isEmpty()) {
+            throw new IllegalStateException("Stack is empty");
+        }
+        return (T) queue.getItem(0);
     }
 
     @Override
     public int size() {
-        // TODO: To be implemented.
-        throw new UnsupportedOperationException("Not supported yet.");
+        return queue.size;
     }
 
     @Override
     public boolean isEmpty() {
-        // TODO: To be implemented.
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+        for (int i = 0; i < queue.size(); i++) {
+            if (queue.getItem(i) != null) {
+                return false;
+            }
+        }
+        return true;    }
 
 }
